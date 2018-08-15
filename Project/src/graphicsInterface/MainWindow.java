@@ -1,4 +1,7 @@
+
 package graphicsInterface;
+
+import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
@@ -14,6 +17,7 @@ public class MainWindow extends JFrame {
 		this.setVisible(true);
 		this.setSize(800, 600);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setLayout(new BorderLayout());
 	}
 	
 
