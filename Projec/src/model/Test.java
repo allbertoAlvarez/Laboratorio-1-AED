@@ -6,7 +6,11 @@ public class Test {
 	private SortNumbers sort;
 
 	public Test() {
-
+		
 	}
 
+	public void addQuantityToGenerate(int a) {
+		generator = new NumberGenerator(a);
+	}
+	
 }

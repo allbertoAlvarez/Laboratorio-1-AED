@@ -2,6 +2,12 @@ package model;
 
 public class NumberGenerator {
 
+	private int quantityNumbersToGenerate;
+	
+	public NumberGenerator(int quantity) {
+		quantityNumbersToGenerate = quantity;
+	}
+	
 	public int[] orderArray() {
 		return null;
 	}
@@ -16,6 +22,10 @@ public class NumberGenerator {
 
 	public int[] percentageArray(double percentage) {
 		return null;
+	}
+	
+	public int getQuantityNumbersToGenerate() {
+		return quantityNumbersToGenerate;
 	}
 
 }
