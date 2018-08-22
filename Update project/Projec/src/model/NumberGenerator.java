@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Random;
+
 public class NumberGenerator {
 
 	private int quantityNumbersToGenerate;
@@ -20,15 +22,19 @@ public class NumberGenerator {
 		return null;
 	}
 
-	public int[] randomArray(int a) {
-		int[] boxOfNumbers = new int[a];
+	public int[] randomArray() {
+		int[] boxOfNumbers = new int[quantityNumbersToGenerate];
 	
-		
-		for(int i = 0; i < a; i ++) {
-			
+		for(int i = 0; i < quantityNumbersToGenerate; i ++) {
+			Random r = new Random();
+			int randomGenerated = r.nextInt(maximunValue);
+			if(randomGenerated >= maximunValue - minimunValue) {
+				boxOfNumbers[i] = randomGenerated;
+			}
+			else {
+				boxOfNumbers[i] = minimunValue + randomGenerated;
+			}
 		}
-		
-	
 		return boxOfNumbers;
 	}
 

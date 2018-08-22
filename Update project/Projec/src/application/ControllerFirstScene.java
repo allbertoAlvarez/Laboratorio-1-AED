@@ -53,7 +53,7 @@ public class ControllerFirstScene {
     @FXML
     void generateRandomInOrder(ActionEvent event) {
     	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
-    	if(a == null || a.equals("") || Integer.parseInt(a) == 0) {
+    	if(a == null || a.equals("") || Integer.parseInt(a) == 0|| Integer.parseInt(a) > 1000) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
@@ -79,7 +79,7 @@ public class ControllerFirstScene {
     @FXML
     void generateRandomInverse(ActionEvent event) {
     	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
-    	if(a == null || a.equals("") || Integer.parseInt(a) == 0) {
+    	if(a == null || a.equals("") || Integer.parseInt(a) == 0|| Integer.parseInt(a) > 1000) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
@@ -106,7 +106,7 @@ public class ControllerFirstScene {
     @FXML
     void generateRandomPercentage(ActionEvent event) {
     	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
-    	if(a == null || a.equals("") || Integer.parseInt(a) == 0) {
+    	if(a == null || a.equals("") || Integer.parseInt(a) == 0|| Integer.parseInt(a) > 1000) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
@@ -133,7 +133,7 @@ public class ControllerFirstScene {
     @FXML
     void generateRandom(ActionEvent event) {
     	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
-    	if(a == null || a.equals("") || Integer.parseInt(a) == 0) {
+    	if(a == null || a.equals("") || Integer.parseInt(a) == 0|| Integer.parseInt(a) > 1000) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
@@ -151,6 +151,7 @@ public class ControllerFirstScene {
     	    		minimumValue.setText(test.getMinimumValue() + "");
     	    		maximumValue.setText(test.getMaximumValue() + "");
     	    		size.setText(a);
+    	    		test.imprimir();
     			}
     		}
     	}
