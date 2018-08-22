@@ -16,7 +16,6 @@ public class ControllerFirstScene {
 	private Test test;
 	
 	public ControllerFirstScene() {
-		test = new Test();
 	}
 	
 	
@@ -40,50 +39,120 @@ public class ControllerFirstScene {
     
     @FXML
     private TextField complexityTemp;
+    
+    @FXML
+    private TextField spaceComplexity;
+
+    @FXML
+    private TextField minimumValue;
+
+    @FXML
+    private TextField maximumValue;
+    
 
     @FXML
     void generateRandomInOrder(ActionEvent event) {
-    	String a = JOptionPane.showInputDialog("Introduce la cantidad de numeros: ");
+    	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
     	if(a == null || a.equals("") || Integer.parseInt(a) == 0) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
-    		size.setText(a);
+    		String b = JOptionPane.showInputDialog("Introduce the minimum value: ");
+    		if(b == null || b.equals("") || Integer.parseInt(b) == 0) {
+    			JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
+    		}
+    		else {
+    			String c = JOptionPane.showInputDialog("Introduce the maximum value:  ");
+    			if(c == null || c.equals("") || Integer.parseInt(c) == 0) {
+    				JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
+    			}
+    			else {
+    	    		test = new Test(Integer.parseInt(a), Integer.parseInt(b), Integer.parseInt(c));
+    	    		minimumValue.setText(test.getMinimumValue() + "");
+    	    		maximumValue.setText(test.getMaximumValue() + "");
+    	    		size.setText(a);
+    			}
+    		}
     	}
     }
 
     @FXML
     void generateRandomInverse(ActionEvent event) {
-    	String a = JOptionPane.showInputDialog("Introduce la cantidad de numeros: ");
-    	if(a == null || a.equals("") || Integer.parseInt(a) == 0 ) {
+    	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
+    	if(a == null || a.equals("") || Integer.parseInt(a) == 0) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
-    		size.setText(a);
-    		
+    		String b = JOptionPane.showInputDialog("Introduce the minimum value: ");
+    		if(b == null || b.equals("") || Integer.parseInt(b) == 0) {
+    			JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
+    		}
+    		else {
+    			String c = JOptionPane.showInputDialog("Introduce the maximum value:  ");
+    			if(c == null || c.equals("") || Integer.parseInt(c) == 0) {
+    				JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
+    			}
+    			else {
+    	    		test = new Test(Integer.parseInt(a), Integer.parseInt(b), Integer.parseInt(c));
+    	    		minimumValue.setText(test.getMinimumValue() + "");
+    	    		maximumValue.setText(test.getMaximumValue() + "");
+    	    		size.setText(a);
+    			}
+    		}
     	}
 
     }
 
     @FXML
     void generateRandomPercentage(ActionEvent event) {
-    	String a = JOptionPane.showInputDialog("Introduce la cantidad de numeros: ");
+    	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
     	if(a == null || a.equals("") || Integer.parseInt(a) == 0) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
-    		size.setText(a);
+    		String b = JOptionPane.showInputDialog("Introduce the minimum value: ");
+    		if(b == null || b.equals("") || Integer.parseInt(b) == 0) {
+    			JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
+    		}
+    		else {
+    			String c = JOptionPane.showInputDialog("Introduce the maximum value:  ");
+    			if(c == null || c.equals("") || Integer.parseInt(c) == 0) {
+    				JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
+    			}
+    			else {
+    	    		test = new Test(Integer.parseInt(a), Integer.parseInt(b), Integer.parseInt(c));
+    	    		minimumValue.setText(test.getMinimumValue() + "");
+    	    		maximumValue.setText(test.getMaximumValue() + "");
+    	    		size.setText(a);
+    			}
+    		}
     	}
+ 
     }
 		
     @FXML
     void generateRandom(ActionEvent event) {
-    	String a = JOptionPane.showInputDialog("Introduce la cantidad de numeros: ");
+    	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
     	if(a == null || a.equals("") || Integer.parseInt(a) == 0) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
-    		size.setText(a);
+    		String b = JOptionPane.showInputDialog("Introduce the minimum value: ");
+    		if(b == null || b.equals("") || Integer.parseInt(b) == 0) {
+    			JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
+    		}
+    		else {
+    			String c = JOptionPane.showInputDialog("Introduce the maximum value:  ");
+    			if(c == null || c.equals("") || Integer.parseInt(c) == 0) {
+    				JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
+    			}
+    			else {
+    	    		test = new Test(Integer.parseInt(a), Integer.parseInt(b), Integer.parseInt(c));
+    	    		minimumValue.setText(test.getMinimumValue() + "");
+    	    		maximumValue.setText(test.getMaximumValue() + "");
+    	    		size.setText(a);
+    			}
+    		}
     	}
     }
 
