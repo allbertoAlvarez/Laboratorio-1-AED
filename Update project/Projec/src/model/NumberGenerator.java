@@ -7,18 +7,16 @@ public class NumberGenerator {
 	private int quantityNumbersToGenerate;
 	private int minimunValue;
 	private int maximunValue;
-	private SortNumbers sort;
 	
 	public NumberGenerator(int quantity, int minimunValue, int maximunValue) {
 		this.minimunValue = minimunValue;
 		this.maximunValue = maximunValue;
 		quantityNumbersToGenerate = quantity;
-		sort = new SortNumbers();
 	}
 	
-	public int[] neatlyOrderArray() {
-		return null;
-	}
+	//public int[] neatlyOrderArray() {
+	//	return null;
+	//}
 
 	public int[] randomNumbers() {
 		int[] boxOfNumbers = new int[quantityNumbersToGenerate];
@@ -44,7 +42,7 @@ public class NumberGenerator {
 		int[] partialBoxLeft = new int[half];
 		int[] completeBoxNumbers = new int[quantityNumbersToGenerate];
 		
-		//Parte izquierda
+		//Left side
 		for(int i = 0; i < partialBoxLeft.length ; i ++) {
 			Random r = new Random();
 			int randomGenerated = r.nextInt(maximunValue) + 1;
@@ -57,7 +55,7 @@ public class NumberGenerator {
 		}
 		partialBoxLeft = sort.insertionSort(partialBoxLeft);
 		
-		//Parte derecha
+		//Right Side
 		for(int i = 0; i < partialBoxRight.length; i ++) {
 			Random r = new Random();
 			int randomGenerated = r.nextInt(maximunValue) + 1;
@@ -69,7 +67,7 @@ public class NumberGenerator {
 			}
 		}
 		
-		//Union de las partes
+		//Union of the parts
 		for(int i = 0; i < quantityNumbersToGenerate ; i ++) {
 			if(i < half) {
 				completeBoxNumbers[i] = partialBoxLeft[i];
