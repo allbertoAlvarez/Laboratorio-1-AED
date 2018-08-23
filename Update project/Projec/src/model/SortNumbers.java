@@ -36,12 +36,7 @@ public class SortNumbers {
 		this.mergeSort = mergeSort;
 	}
 
-	public int[] heapSort() {
-
-		int[] numbersGenerated;
-
-		return null;
-	}
+	
 
 	public int[] insertionSort(int[] arr) {
 		
@@ -75,11 +70,6 @@ public class SortNumbers {
 	     return arr;
 	}
 
-	public int[] mergeSort() {
-
-		
-
 	
-	}
 
 }
