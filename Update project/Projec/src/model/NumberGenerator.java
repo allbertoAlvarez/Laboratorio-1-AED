@@ -7,11 +7,13 @@ public class NumberGenerator {
 	private int quantityNumbersToGenerate;
 	private int minimunValue;
 	private int maximunValue;
+	private SortNumbers sort;
 	
 	public NumberGenerator(int quantity, int minimunValue, int maximunValue) {
 		this.minimunValue = minimunValue;
 		this.maximunValue = maximunValue;
 		quantityNumbersToGenerate = quantity;
+		sort = new SortNumbers();
 	}
 	
 	//public int[] neatlyOrderArray() {
