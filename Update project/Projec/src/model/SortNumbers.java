@@ -77,9 +77,9 @@ public class SortNumbers {
 
 	public int[] mergeSort() {
 
-		int[] numbersGenerated;
+		
 
-		return null;
+	
 	}
 
 }
