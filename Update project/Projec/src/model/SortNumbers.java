@@ -98,6 +98,10 @@ public class SortNumbers {
 
 				int right_end = Math.min(left_start + 2 * curr_size - 1, n - 1);
 
+				if (mid > arr.length - 1) {
+					mid = left_start + ((arr.length - left_start) / 2);
+				}
+
 				// Merge Subarrays arr[left_start...mid]
 				// & arr[mid+1...right_end]
 				merge(arr, left_start, mid, right_end);
