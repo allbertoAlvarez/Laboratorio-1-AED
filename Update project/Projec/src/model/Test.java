@@ -37,13 +37,8 @@ public class Test {
 	public int getQuantityOfNumbersToGenerate() {
 		return generator.getQuantityNumbersToGenerate();
 	}
+
 	
-	public void imprimir() {
-		for(int i = 0; i < generator.randomArray().length; i ++) {
-			System.out.println(generator.randomArray()[i]);
-		}
-		
-	}
 	
 	
 	

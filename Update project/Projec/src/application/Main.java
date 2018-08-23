@@ -12,8 +12,7 @@ import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
 	@Override
-	public void start(Stage primaryStage) throws IOException {
-	
+	public void start(Stage primaryStage) throws IOException {	
 		Parent root = FXMLLoader.load(getClass().getResource("Interface.fxml"));
 		Scene scene = new Scene(root);
 		primaryStage.setResizable(false);
