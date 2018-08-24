@@ -48,4 +48,38 @@ class SortNumbersTest extends TestCase {
 		}
 	}
 
+	@Test
+	void mergeSortTest() {
+		
+		setupStage1();
+		int[] list = new int[10];
+		
+		for (int i = list.length - 1, j = 0; i > 0 && j < list.length; i--, j++) {
+			list[j] = i;
+		}
+		
+		int[] list_a = sort.mergeSort(list, list.length);
+		
+		for (int i = 0; i < list_a.length; i++) {
+			assertTrue(list_a[i] == i);
+		}	
+	}
+	
+	@Test
+	void heapSortTest() {
+		
+		setupStage1();
+		int[] list = new int[10];
+		
+		for (int i = list.length - 1, j = 0; i > 0 && j < list.length; i--, j++) {
+			list[j] = i;
+		}
+		
+		int[] list_a = sort.heapSort(list);
+		
+		for (int i = 0; i < list_a.length; i++) {
+			assertTrue(list_a[i] == i);
+		}
+	}
+	
 }

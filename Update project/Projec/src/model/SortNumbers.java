@@ -68,7 +68,7 @@ public class SortNumbers {
 	// Iterative mergesort.
 	// Source https://www.geeksforgeeks.org/iterative-merge-sort/
 
-	public void mergeSort(int arr[], int n) {
+	public int[] mergeSort(int arr[], int n) {
 
 		// For current size of subarrays to
 		// be merged curr_size varies from
@@ -107,6 +107,7 @@ public class SortNumbers {
 				merge(arr, left_start, mid, right_end);
 			}
 		}
+		return arr;
 	}
 
 	public void merge(int arr[], int l, int m, int r) {
