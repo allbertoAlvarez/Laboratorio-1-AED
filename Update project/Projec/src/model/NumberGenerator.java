@@ -7,122 +7,62 @@ public class NumberGenerator {
 	private int quantityNumbersToGenerate;
 	private int minimunValue;
 	private int maximunValue;
-	private SortNumbers sort;
-	
+
 	public NumberGenerator(int quantity, int minimunValue, int maximunValue) {
 		this.minimunValue = minimunValue;
 		this.maximunValue = maximunValue;
 		quantityNumbersToGenerate = quantity;
-		sort = new SortNumbers();
+
 	}
-	
-	//public int[] neatlyOrderArray() {
-	//	return null;
-	//}
 
 	public int[] randomNumbers() {
 		int[] boxOfNumbers = new int[quantityNumbersToGenerate];
-	
-		for(int i = 0; i < quantityNumbersToGenerate; i ++) {
-			Random r = new Random();
+		Random r = new Random();
+		for (int i = 0; i < quantityNumbersToGenerate;) {
 			int randomGenerated = r.nextInt(maximunValue) + 1;
-			if(randomGenerated >= maximunValue - minimunValue) {
+			if (randomGenerated >= minimunValue) {
 				boxOfNumbers[i] = randomGenerated;
-			}
-			else {
-				boxOfNumbers[i] = minimunValue + randomGenerated;
+				i++;
 			}
 		}
+		return boxOfNumbers;
+	}
+
+	public int[] inOrdermNumbers() {
+		SortNumbers sort = new SortNumbers();
+		int[] boxOfNumbers = sort.mergeSort(randomNumbers(), quantityNumbersToGenerate);
+
 		return boxOfNumbers;
 	}
 
 	public int[] percentageRandomNumbers(double percentage) {
-		
+
 		int percentageQuantity = (int) Math.ceil(((percentage / 100) * quantityNumbersToGenerate));
-		int half = Math.floorDiv(quantityNumbersToGenerate, 2);
-		int[] partialBoxRight = new int[half];
-		int[] partialBoxLeft = new int[half];
-		int[] completeBoxNumbers = new int[quantityNumbersToGenerate];
-		
-		//Left side
-		for(int i = 0; i < partialBoxLeft.length ; i ++) {
-			Random r = new Random();
-			int randomGenerated = r.nextInt(maximunValue) + 1;
-			if(randomGenerated >= maximunValue - minimunValue) {
-				partialBoxLeft[i] = randomGenerated;
-			}
-			else {
-				partialBoxLeft[i] = minimunValue + randomGenerated;
-			}
+		int[] boxOfNumbers = inOrdermNumbers();
+
+		int pivot = 0;
+		int aux = 0;
+
+		for (int i = percentageQuantity; i > 1; i--) {
+			pivot = (int) (Math.random() * percentageQuantity);
+
+			aux = boxOfNumbers[pivot];
+			boxOfNumbers[pivot] = boxOfNumbers[i];
+			boxOfNumbers[i] = aux;
 		}
-		partialBoxLeft = sort.insertionSort(partialBoxLeft);
-		
-		//Right Side
-		for(int i = 0; i < partialBoxRight.length; i ++) {
-			Random r = new Random();
-			int randomGenerated = r.nextInt(maximunValue) + 1;
-			if(randomGenerated >= maximunValue - minimunValue) {
-				partialBoxRight[i] = randomGenerated;
-			}
-			else {
-				partialBoxRight[i] = minimunValue + randomGenerated;
-			}
-		}
-		
-		//Union of the parts
-		for(int i = 0; i < quantityNumbersToGenerate ; i ++) {
-			if(i < half) {
-				completeBoxNumbers[i] = partialBoxLeft[i];
-			}
-			else {
-				completeBoxNumbers[i] = partialBoxRight[i - half];
-			}
-		}
-		
-		return completeBoxNumbers;
-	}
-	
-	public int[] randomNumbersInOrder() {
-		
-		int[] boxOfNumbers = new int[quantityNumbersToGenerate];
-		
-		for(int i = 0; i < quantityNumbersToGenerate; i ++) {
-			Random r = new Random();
-			int randomGenerated = r.nextInt(maximunValue) + 1;
-			if(randomGenerated >= maximunValue - minimunValue) {
-				boxOfNumbers[i] = randomGenerated;
-			}
-			else {
-				boxOfNumbers[i] = minimunValue + randomGenerated;
-			}
-		}
-		boxOfNumbers = sort.insertionSort(boxOfNumbers);
-		
+
 		return boxOfNumbers;
 	}
-	
+
 	public int[] randomNumbersInReverseOrder() {
-		
-		int[] boxOfNumbers = new int[quantityNumbersToGenerate];
-		
-		for(int i = 0; i < quantityNumbersToGenerate; i ++) {
-			Random r = new Random();
-			int randomGenerated = r.nextInt(maximunValue) + 1;
-			if(randomGenerated >= maximunValue - minimunValue) {
-				boxOfNumbers[i] = randomGenerated;
-			}
-			else {
-				boxOfNumbers[i] = minimunValue + randomGenerated;
-			}
-		}
-		boxOfNumbers = sort.insertionSortReverse(boxOfNumbers);
-		
+
+		SortNumbers sort = new SortNumbers();
+		int[] boxOfNumbers = sort.insertionSortReverse(randomNumbers());
+
 		return boxOfNumbers;
-		
-		
+
 	}
-	
-	
+
 	public int getQuantityNumbersToGenerate() {
 		return quantityNumbersToGenerate;
 	}
@@ -146,9 +86,5 @@ public class NumberGenerator {
 	public void setQuantityNumbersToGenerate(int quantityNumbersToGenerate) {
 		this.quantityNumbersToGenerate = quantityNumbersToGenerate;
 	}
-	
-	
-	
-	
 
 }
