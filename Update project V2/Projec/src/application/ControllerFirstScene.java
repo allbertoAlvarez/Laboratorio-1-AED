@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,7 +48,7 @@ public class ControllerFirstScene {
     private TextField size;
     
     @FXML
-    private ComboBox<?> sortAlgoritms;
+    private ComboBox<String> sortAlgoritms;
     
     @FXML
     private TextField complexityTemp;
@@ -60,6 +62,11 @@ public class ControllerFirstScene {
     @FXML
     private TextField maximumValue;
     
+    @FXML
+    private Button sortNumbers;
+    
+    @FXML
+    private TextField timeSeconds;
 
     @FXML
     void introduceNumbers(ActionEvent event) throws IOException {
@@ -67,10 +74,32 @@ public class ControllerFirstScene {
         Parent root = FXMLLoader.load(getClass().getResource("SecundaryWindow.fxml"));
         Scene scene = new Scene(root);
         Stage s = new Stage();
+        s.setResizable(false);
         s.setScene(scene);
         s.show();
     }
     
+   public void showAlgoritmsInComboBox() {
+	  
+	   ObservableList<Object> items = FXCollections.observableArrayList();
+	   sortAlgoritms.getItems().add("Merge");
+	   sortAlgoritms.getItems().add("Insertion");
+	   sortAlgoritms.getItems().add("Heap");
+	   
+   }
+    
+
+    @FXML
+    void sortNumbers(ActionEvent event) throws IOException {
+    	
+        Parent root = FXMLLoader.load(getClass().getResource("ThirdScene.fxml"));
+        Scene scene = new Scene(root);
+        Stage s = new Stage();
+        s.setResizable(false);
+        s.setScene(scene);
+        s.setTitle("SEE ORDERED NUMBERS");
+        s.show();
+    }
    
     
     @FXML
@@ -94,10 +123,7 @@ public class ControllerFirstScene {
     	    		minimumValue.setText(test.getMinimumValue() + "");
     	    		maximumValue.setText(test.getMaximumValue() + "");
     	    		size.setText(a);
-//    	    		int[] arreglo =  {8,1,2,23,453,232};
-//    	    		for(int i = 0; i < test.getSort().insertionSortReverse(arreglo).length ; i ++) {
-//    	    			System.out.println(test.getSort().insertionSortReverse(arreglo)[i]);
-//    	    		}
+    	    		showAlgoritmsInComboBox();
     			}
     		}
     	}
@@ -124,6 +150,7 @@ public class ControllerFirstScene {
     	    		minimumValue.setText(test.getMinimumValue() + "");
     	    		maximumValue.setText(test.getMaximumValue() + "");
     	    		size.setText(a);
+    	    		showAlgoritmsInComboBox();
     			}
     		}
     	}
@@ -156,6 +183,7 @@ public class ControllerFirstScene {
     	    			minimumValue.setText(test.getMinimumValue() + "");
     	    			maximumValue.setText(test.getMaximumValue() + "");
     	    			size.setText(a);
+        	    		showAlgoritmsInComboBox();
         			}
     			}
     		}
@@ -184,6 +212,7 @@ public class ControllerFirstScene {
     	    		minimumValue.setText(test.getMinimumValue() + "");
     	    		maximumValue.setText(test.getMaximumValue() + "");
     	    		size.setText(a);
+    	    		showAlgoritmsInComboBox();
     			}
     		}
     	}
