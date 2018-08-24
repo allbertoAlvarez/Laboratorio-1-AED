@@ -77,6 +77,10 @@ public class Test {
 		
 	}
 	
+	public boolean escogerAlgoritmo() {
+		return generator.getQuantityNumbersToGenerate() > 0;
+	}
+	
 	
 	
 	

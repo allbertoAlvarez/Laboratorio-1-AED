@@ -8,19 +8,21 @@ public class NumberGenerator {
 	private int minimunValue;
 	private int maximunValue;
 	private SortNumbers sort;
+	private int[] arrayGenerated;
 	
 	public NumberGenerator(int quantity, int minimunValue, int maximunValue) {
 		this.minimunValue = minimunValue;
 		this.maximunValue = maximunValue;
 		quantityNumbersToGenerate = quantity;
 		sort = new SortNumbers();
+		arrayGenerated = new int[quantity];
 	}
 	
 	public int[] neatlyOrderArray() {
 		return null;
 	}
 
-	public int[] randomNumbers() {
+	public void randomNumbers() {
 		int[] boxOfNumbers = new int[quantityNumbersToGenerate];
 	
 		for(int i = 0; i < quantityNumbersToGenerate; i ++) {
@@ -33,10 +35,10 @@ public class NumberGenerator {
 				boxOfNumbers[i] = minimunValue + randomGenerated;
 			}
 		}
-		return boxOfNumbers;
+		arrayGenerated = boxOfNumbers;
 	}
 
-	public int[] percentageRandomNumbers(double percentage) {
+	public void percentageRandomNumbers(double percentage) {
 		
 		int percentageQuantity = (int) Math.ceil(((percentage / 100) * quantityNumbersToGenerate));
 		int half = Math.floorDiv(quantityNumbersToGenerate, 2);
@@ -79,10 +81,10 @@ public class NumberGenerator {
 			}
 		}
 		
-		return completeBoxNumbers;
+		arrayGenerated = completeBoxNumbers;
 	}
 	
-	public int[] randomNumbersInOrder() {
+	public void randomNumbersInOrder() {
 		
 		int[] boxOfNumbers = new int[quantityNumbersToGenerate];
 		
@@ -97,11 +99,11 @@ public class NumberGenerator {
 			}
 		}
 		boxOfNumbers = sort.insertionSort(boxOfNumbers);
+		arrayGenerated = boxOfNumbers;
 		
-		return boxOfNumbers;
 	}
 	
-	public int[] randomNumbersInReverseOrder() {
+	public void randomNumbersInReverseOrder() {
 		
 		int[] boxOfNumbers = new int[quantityNumbersToGenerate];
 		
@@ -116,10 +118,7 @@ public class NumberGenerator {
 			}
 		}
 		boxOfNumbers = sort.insertionSortReverse(boxOfNumbers);
-		
-		return boxOfNumbers;
-		
-		
+		arrayGenerated = boxOfNumbers;
 	}
 	
 	
@@ -147,6 +146,9 @@ public class NumberGenerator {
 		this.quantityNumbersToGenerate = quantityNumbersToGenerate;
 	}
 	
+	public int[] getArrayGenerated() {
+		return arrayGenerated;
+	}
 	
 	
 	

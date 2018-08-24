@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
@@ -16,19 +15,13 @@
       <content>
         <AnchorPane maxWidth="801.0" minHeight="0.0" minWidth="0.0" prefHeight="521.0" prefWidth="439.0" style="-fx-background-color: DARKGRAY;">
                <children>
-                  <Button fx:id="randomNumbers" layoutX="39.0" layoutY="75.0" maxWidth="300.0" mnemonicParsing="false" onAction="#generateRandom" prefHeight="55.0" prefWidth="300.0" text="RANDOM NUMBERS" />
-                  <Button fx:id="randomInverse" layoutX="39.0" layoutY="145.0" maxWidth="300.0" mnemonicParsing="false" onAction="#generateRandomInverse" prefHeight="55.0" prefWidth="300.0" text="RANDOM NUMBERS IN REVERSE ORDER" />
-                  <Button fx:id="randomOrder" layoutX="39.0" layoutY="215.0" maxWidth="300.0" mnemonicParsing="false" onAction="#generateRandomInOrder" prefHeight="55.0" prefWidth="300.0" text="RANDOM NUMBERS IN ORDER" />
-                  <Button fx:id="randomPercentage" layoutX="39.0" layoutY="290.0" maxWidth="300.0" mnemonicParsing="false" onAction="#generateRandomPercentage" prefHeight="55.0" prefWidth="300.0" text="RANDOM NUMBERS WITH ORDERED PERCENTAGE" />
+                  <Button fx:id="randomNumbers" layoutX="39.0" layoutY="116.0" maxWidth="300.0" mnemonicParsing="false" onAction="#generateRandom" prefHeight="55.0" prefWidth="300.0" text="RANDOM NUMBERS" />
+                  <Button fx:id="randomInverse" layoutX="39.0" layoutY="184.0" maxWidth="300.0" mnemonicParsing="false" onAction="#generateRandomInverse" prefHeight="55.0" prefWidth="300.0" text="RANDOM NUMBERS IN REVERSE ORDER" />
+                  <Button fx:id="randomOrder" layoutX="39.0" layoutY="256.0" maxWidth="300.0" mnemonicParsing="false" onAction="#generateRandomInOrder" prefHeight="55.0" prefWidth="300.0" text="RANDOM NUMBERS IN ORDER" />
+                  <Button fx:id="randomPercentage" layoutX="39.0" layoutY="324.0" maxWidth="300.0" mnemonicParsing="false" onAction="#generateRandomPercentage" prefHeight="55.0" prefWidth="300.0" text="RANDOM NUMBERS WITH ORDERED PERCENTAGE" />
                   <AnchorPane layoutX="407.0" layoutY="-12.0" prefHeight="550.0" prefWidth="412.0" style="-fx-background-color: WHITE;">
                      <children>
-                        <Text layoutX="27.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INPUT SIZE" underline="true">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                        <ComboBox fx:id="sortAlgoritms" layoutX="186.0" layoutY="152.0" prefHeight="38.0" prefWidth="149.0" />
-                        <Text layoutX="25.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AVAIABLE ALGORITMS" underline="true" wrappingWidth="155.09716796875">
+                        <Text layoutX="27.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INPUT SIZE" underline="true">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -38,7 +31,7 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="size" editable="false" layoutX="188.0" layoutY="95.0" style="-fx-background-color: GRAY;">
+                        <TextField fx:id="size" editable="false" layoutX="188.0" layoutY="158.0" style="-fx-background-color: GRAY;">
                            <cursor>
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
@@ -78,7 +71,6 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </TextField>
-                        <Button fx:id="sortNumbers" layoutX="101.0" layoutY="479.0" mnemonicParsing="false" onAction="#sortNumbers" prefHeight="44.0" prefWidth="202.0" text="SORT" />
                         <Text fx:id="time" layoutX="26.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIME IN SECONDS" underline="true">
                            <font>
                               <Font size="15.0" />
@@ -89,9 +81,9 @@
                               <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </TextField>
+                        <Button fx:id="aviableAlgortims" layoutX="134.0" layoutY="58.0" mnemonicParsing="false" onAction="#showAlgoritms" prefHeight="52.0" prefWidth="136.0" text="AVAIBLE ALGORITMS" />
                      </children>
                   </AnchorPane>
-                  <Button fx:id="numbersIntroduced" layoutX="39.0" layoutY="360.0" maxWidth="300.0" mnemonicParsing="false" onAction="#introduceNumbers" prefHeight="55.0" prefWidth="300.0" text="INTRODUCE THE NUMBERS" />
                </children></AnchorPane>
       </content>
     </Tab>

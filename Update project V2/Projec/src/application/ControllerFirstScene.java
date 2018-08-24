@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import model.SortNumbers;
 import model.Test;
 
 public class ControllerFirstScene {
@@ -46,9 +47,9 @@ public class ControllerFirstScene {
     
     @FXML
     private TextField size;
-    
+   
     @FXML
-    private ComboBox<String> sortAlgoritms;
+    private Button aviableAlgortims;
     
     @FXML
     private TextField complexityTemp;
@@ -79,14 +80,47 @@ public class ControllerFirstScene {
         s.show();
     }
     
-   public void showAlgoritmsInComboBox() {
-	  
-	   ObservableList<Object> items = FXCollections.observableArrayList();
-	   sortAlgoritms.getItems().add("Merge");
-	   sortAlgoritms.getItems().add("Insertion");
-	   sortAlgoritms.getItems().add("Heap");
-	   
-   }
+
+    @FXML
+    void showAlgoritms(ActionEvent event) {
+    	
+    	if(test != null) {
+        	String[] a = {"Merge Sort", "Insertion Sort", "Heap sort"};
+        	
+        	Object optionTypeObject = JOptionPane.showInputDialog(null,"Selecciona un color", "Elegir",JOptionPane.QUESTION_MESSAGE,null,a, null);
+        	if(optionTypeObject == null) {
+        		
+        	}
+        	else {
+        	
+        		String option = (String)optionTypeObject;
+        	
+        		if(option.equals("Merge Sort")) {
+        			complexityTemp.setText(SortNumbers.mergeSortTemporalComplexity);
+        			spaceComplexity.setText(SortNumbers.mergeSortSpaceComplexity);
+        			
+        		}
+        		else if(option.equals("Insertion Sort")) {
+        			complexityTemp.setText(SortNumbers.insertionSortTemporalComplexity);
+        			spaceComplexity.setText(SortNumbers.insertionSortSpaceComplexity);
+        			timeSeconds.setText(test.getSecondsForInsertionSort(test.getGenerator().getArrayGenerated()) + "");
+
+        		}
+        		else if(option.equals("Heap sort")) {
+        			complexityTemp.setText(SortNumbers.heapSortTemporalComplexity);
+        			spaceComplexity.setText(SortNumbers.heapSortSpaceComplexity);
+        			timeSeconds.setText(test.getSecondsForHeapSort(test.getGenerator().getArrayGenerated()) + "") ;
+        		}
+        	}
+    	}
+    	else {
+    		JOptionPane.showMessageDialog(null, "You have to choose some generator numbers first", null, JOptionPane.ERROR_MESSAGE);
+    	}
+    	
+
+
+    	
+    }
     
 
     @FXML
@@ -105,7 +139,7 @@ public class ControllerFirstScene {
     @FXML
     void generateRandomInOrder(ActionEvent event) {
     	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
-    	if(a == null || a.equals("") || Integer.parseInt(a) == 0|| Integer.parseInt(a) == 1 || Integer.parseInt(a) > 1000) {
+    	if(a == null || a.equals("") || Integer.parseInt(a) == 0|| Integer.parseInt(a) == 1 || Integer.parseInt(a) > 1000000) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
@@ -123,7 +157,7 @@ public class ControllerFirstScene {
     	    		minimumValue.setText(test.getMinimumValue() + "");
     	    		maximumValue.setText(test.getMaximumValue() + "");
     	    		size.setText(a);
-    	    		showAlgoritmsInComboBox();
+    	    		test.getGenerator().randomNumbersInOrder();
     			}
     		}
     	}
@@ -132,7 +166,7 @@ public class ControllerFirstScene {
     @FXML
     void generateRandomInverse(ActionEvent event) {
     	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
-    	if(a == null || a.equals("") || Integer.parseInt(a) == 0|| Integer.parseInt(a) == 1 || Integer.parseInt(a) > 1000) {
+    	if(a == null || a.equals("") || Integer.parseInt(a) == 0|| Integer.parseInt(a) == 1 || Integer.parseInt(a) > 1000000) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
@@ -150,7 +184,7 @@ public class ControllerFirstScene {
     	    		minimumValue.setText(test.getMinimumValue() + "");
     	    		maximumValue.setText(test.getMaximumValue() + "");
     	    		size.setText(a);
-    	    		showAlgoritmsInComboBox();
+    	    		test.getGenerator().randomNumbersInReverseOrder();
     			}
     		}
     	}
@@ -160,7 +194,7 @@ public class ControllerFirstScene {
     @FXML
     void generateRandomPercentage(ActionEvent event) {
     	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
-    	if(a == null || a.equals("") || Integer.parseInt(a) == 0||Integer.parseInt(a) == 1 || Integer.parseInt(a) > 1000) {
+    	if(a == null || a.equals("") || Integer.parseInt(a) == 0||Integer.parseInt(a) == 1 || Integer.parseInt(a) > 1000000) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
@@ -183,7 +217,8 @@ public class ControllerFirstScene {
     	    			minimumValue.setText(test.getMinimumValue() + "");
     	    			maximumValue.setText(test.getMaximumValue() + "");
     	    			size.setText(a);
-        	    		showAlgoritmsInComboBox();
+    	    			test.getGenerator().percentageRandomNumbers(Double.parseDouble(p));
+       
         			}
     			}
     		}
@@ -194,7 +229,7 @@ public class ControllerFirstScene {
     @FXML
     void generateRandom(ActionEvent event) {
     	String a = JOptionPane.showInputDialog("Introduce the quantity of numbers that you want to sort: ");
-    	if(a == null || a.equals("") || Integer.parseInt(a) == 0|| Integer.parseInt(a) == 1 || Integer.parseInt(a) > 1000) {
+    	if(a == null || a.equals("") || Integer.parseInt(a) == 0|| Integer.parseInt(a) == 1 || Integer.parseInt(a) > 1000000) {
     		JOptionPane.showMessageDialog(null, "You do not introduce valid value", null, JOptionPane.ERROR_MESSAGE);
     	}
     	else {
@@ -212,7 +247,7 @@ public class ControllerFirstScene {
     	    		minimumValue.setText(test.getMinimumValue() + "");
     	    		maximumValue.setText(test.getMaximumValue() + "");
     	    		size.setText(a);
-    	    		showAlgoritmsInComboBox();
+    	    		
     			}
     		}
     	}
